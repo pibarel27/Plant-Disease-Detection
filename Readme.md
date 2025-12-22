@@ -1,11 +1,9 @@
 # 🌾 Ensemble Plant Disease Detection
 
-![UI Screenshot](Assets/UI/webView.jpg)
-# WebView
-![UI Screenshot](Assets/UI/mobileview.jpg)
-# Mobile View
-This project is a **Streamlit web app** that detects plant leaf diseases using an **ensemble of multiple deep learning models**.  
-Instead of relying on a single dataset, the app combines predictions from three Hugging Face models (PlantVillage, Rice Leaf Disease, and Vision Transformer) to produce **one final, accurate disease prediction**.
+| WebView | Mobile View |
+|---------|-------------|
+| <img src="Assets/UI/webView.jpg" width="400"/> | <img src="Assets/UI/mobileview.jpg" width="250"/> |
+
 
 ---
 
