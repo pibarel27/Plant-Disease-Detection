@@ -39,13 +39,22 @@ def predict_with_model(model, processor, image):
 
 # 3. Streamlit UI
 st.title("🌾 Ensemble Plant Disease Detection Demo")
-st.write("Upload a crop leaf image. The app combines multiple models to give one final disease prediction.")
+st.write("Upload a crop leaf image or capture one using your camera. The app combines multiple models to give one final disease prediction.")
 
+# File uploader
 uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 
-if uploaded_file is not None:
-    image = Image.open(uploaded_file).convert("RGB")
-    st.image(image, caption="Uploaded Leaf", width=400)
+# Camera input
+camera_file = st.camera_input("Or take a photo")
+
+# Use uploaded file or camera input
+if uploaded_file is not None or camera_file is not None:
+    if uploaded_file is not None:
+        image = Image.open(uploaded_file).convert("RGB")
+    else:
+        image = Image.open(camera_file).convert("RGB")
+
+    st.image(image, caption="Input Leaf", width=400)
 
     # Run inference with all models
     pv_label, pv_conf = predict_with_model(pv_model, pv_processor, image)
